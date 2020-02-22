@@ -8,7 +8,7 @@ public class AddressDTO {
 	private String city;
 	private String state;
 	private String field;
-	private String zip;
+	private String zip;             
 	private static int addressIdCounter = 0;
 
 	public AddressDTO() {
