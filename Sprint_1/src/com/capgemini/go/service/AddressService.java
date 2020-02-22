@@ -1,35 +1,38 @@
 package com.capgemini.go.service;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.management.StringValueExp;
 
 import com.capgemini.go.dto.AddressDTO;
 
 public class AddressService {
 
 
-	List<AddressDTO> addressList = new ArrayList<AddressDTO>();
+	Map<String,AddressDTO> addressList = new HashMap<>();
 
-//	public AddressService() {
-//		super();
-////		setAddress();
-//	}
+	public AddressService() {
+		super();
+		setAddress();
+	}
 
-	public List<AddressDTO> viewAllAddress() {
+	public Map<String,AddressDTO> viewAllAddress() {
 
 		return addressList;
 	}
 
-//	private void setAddress() {
-//		addressList.add(new AddressDTO("1", "2", "3", "4", "5"));
-//		addressList.add(new AddressDTO("12", "22", "23", "24", "25"));
-//	}
+	private void setAddress() {
+		addressList.put("1",new AddressDTO("1", "2", "3", "4", "5"));
+		addressList.put("2", new AddressDTO("12", "22", "23", "24", "25"));
+	}
 
 	public void addAddress(AddressDTO address) {
 		if(address!= null)
 		{
-			addressList.add(address);
-		//	viewAllAddress();
+			addressList.put(address.getAddressId(),address);
+			viewAllAddress();
 		}
 		
 	}
@@ -39,14 +42,21 @@ public class AddressService {
 //
 //	}
 //
-//	private void deleteAddress() {
-//
-//	}
-//
+	public void deleteAddress(String key) {
+		if (String.valueOf(addressList).contains(key))
+		{
+		addressList.remove(key);
+		System.out.println("object deleted at " + key + " value ");
+		}
+		//System.out.println(addressList);
+	}
+
 //	static public void toexit() {
 //
 //		System.out.print("See you soon :)");
 //		System.exit(0);
+//	}
+		
 //	}
 
 }

@@ -9,9 +9,10 @@ public class AddressDTO {
 	private String state;
 	private String field;
 	private String zip;
+	private static int addressIdCounter = 0;
 
 	public AddressDTO() {
-
+		this.addressId = String.valueOf(addressIdCounter++) ;
 	}
 
 	public AddressDTO(String buildingNo, String city, String state, String field,String zip) {
@@ -20,12 +21,13 @@ public class AddressDTO {
 		this.state = state;
 		this.field = field;
 		this.zip = zip;
+		this.addressId = String.valueOf(addressIdCounter++) ;
 	}
 
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "AddressId : " + addressId + "Buildingno : " + buildingNo + " City : " + city + " State : " + state + " Field : " + field + " Zip : "
+		return " "+  " AddressId : " + addressId + "Buildingno : " + buildingNo + " City : " + city + " State : " + state + " Field : " + field + " Zip : "
 				+ zip;
 	}
 
