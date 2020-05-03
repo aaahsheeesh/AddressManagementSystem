@@ -1,0 +1,1 @@
+insert into ADDRESSDTO values (121,'c329','Noida','UP','filed','201310' );
